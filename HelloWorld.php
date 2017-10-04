@@ -53,9 +53,27 @@ for($i=1;$i<=10;$i++){
 }
 echo "<br>";
 print_r($_GET);
-$name=$_GET['name'];
-$pass=$_GET['password'];
-echo "<br>".$name." ".$pass;
+$name = $_GET['name'];
+$kodeord = $_GET['password'];
+echo "<p>";
+if ($name) echo "<br>Være hilset " . $name;
+if ($kodeord) {
+    echo "<br>Dit kodeord er  " . $kodeord;
+    echo "<br>forbudt at sætte passwords ind i GET";
+}
+
+
+?>
+<form method="post" action="HelloWorld.php" ><input type="text" id="Navn" name="name" value="Skriv dit navn...">
+    <button>Klik mig</button>
+</form>
+
+<?php
+print_r($_POST);
+$name2 = $_POST['name'];
+if ($name2) {
+    echo "<br>Har modtaget name <b>" . $name2 . "</b> via POST metoden.";
+}
 $users= array
 (
     array("anders","1223"),
